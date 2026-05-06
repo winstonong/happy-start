@@ -5,7 +5,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import "../styles.css";
+import appCss from "../styles.css?url";
 
 function RootComponent() {
   return (
