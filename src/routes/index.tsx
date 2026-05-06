@@ -211,7 +211,7 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-10 animate-fadeInUp">
+          <div className="relative z-10 animate-fadeInUp scroll-mt-20" id="hubspot-v8-hero-anchor">
             <div className="p-8 lg:p-10 rounded-[2.5rem] bg-white/95 backdrop-blur-md" style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.3)" }}>
               <h3 className="text-2xl font-bold mb-2" style={{ color: C.onSurface }}>Book Your Strategy Session</h3>
               <p className="mb-6 font-medium" style={{ color: C.onSurfaceVariant }}>Tell us your hiring needs and get a shortlist of candidates within 48 hours.</p>
