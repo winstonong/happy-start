@@ -26,9 +26,18 @@ function RootComponent() {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+        <ScriptOnce children={gtmScript} />
         <HeadContent />
       </head>
       <body className="min-h-screen flex flex-col">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MBZB3GH2"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between gap-3">
             <Link to="/" className="flex items-center gap-2 font-bold tracking-tight text-gray-900 min-w-0">
