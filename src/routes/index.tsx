@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type ReactElement } from "react";
+import { useState, useEffect, useRef, type ReactElement } from "react";
 
 /* ─── Design Tokens ─── */
 const C = {
