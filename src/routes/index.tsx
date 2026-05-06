@@ -236,6 +236,62 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ════════ AS SEEN IN ════════ */}
+      <section className="py-20" style={{ backgroundColor: C.surface }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-4">
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: C.onSurface }}>
+              Leading Website For Outsourced Talent
+            </h2>
+          </div>
+          <p className="text-center mb-10">
+            <a href="#press" className="font-medium" style={{ color: C.primary }}>Read about us</a>{" "}
+            <span style={{ color: C.onSurfaceVariant }}>below.</span>
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border rounded-2xl overflow-hidden" style={{ borderColor: C.outlineVariant }}>
+            {pressFeatures.map((p, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center justify-start p-6 text-center"
+                style={{ borderRight: i < pressFeatures.length - 1 ? `1px solid ${C.outlineVariant}` : "none" }}
+              >
+                <img
+                  src={p.logo}
+                  alt={p.name}
+                  loading="lazy"
+                  className="h-10 w-auto object-contain mb-5 grayscale"
+                />
+                <p className="text-sm leading-relaxed font-medium" style={{ color: C.onSurfaceVariant }}>
+                  &lsquo;{p.quote}&rsquo;
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-14">
+            <p className="text-lg md:text-xl font-bold tracking-tight" style={{ color: C.onSurface }}>
+              4.9 Stars from +2,500 Reviews across{" "}
+              <span style={{ color: C.primary }}>Trustpilot</span>,{" "}
+              <span style={{ color: C.primary }}>Google Reviews</span> and{" "}
+              <span style={{ color: C.primary }}>Glassdoor</span>
+            </p>
+            <div className="flex justify-center gap-1 mt-3">
+              {[...Array(4)].map((_, i) => <StarIcon key={i} size={28} />)}
+              <svg width={28} height={28} viewBox="0 0 20 20">
+                <defs>
+                  <linearGradient id="half-star">
+                    <stop offset="50%" stopColor="#F59E0B" />
+                    <stop offset="50%" stopColor="#D1D5DB" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#half-star)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ════════ SERVICES ════════ */}
       <section className="py-24" style={{ backgroundColor: C.surfaceLow }}>
         <div className="max-w-7xl mx-auto px-6">
