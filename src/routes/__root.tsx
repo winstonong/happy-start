@@ -17,6 +17,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MBZB3GH2');`;
 
 function RootComponent() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsub = router.subscribe("onResolved", (evt) => {
+      (window as any).dataLayer?.push({
+        event: "page_view",
+        page_path: evt.toLocation.pathname,
+        page_title: document.title,
+      });
+    });
+    return unsub;
+  }, [router]);
+
   return (
     <html lang="en" className="antialiased scroll-smooth">
       <head>
