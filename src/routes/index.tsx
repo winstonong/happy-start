@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef, type ReactElement } from "react";
 
 /* ─── Design Tokens ─── */
@@ -562,8 +562,8 @@ function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-20">
             <div className="flex flex-col space-y-4">
               <h5 className="font-bold text-sm uppercase tracking-widest" style={{ color: C.onSurface }}>Links</h5>
-              <a href="#" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Privacy Policy</a>
-              <a href="#" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Terms of Service</a>
+              <Link to="/privacy" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Privacy Policy</Link>
+              <Link to="/terms" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Terms of Service</Link>
             </div>
             <div className="flex flex-col space-y-4">
               <h5 className="font-bold text-sm uppercase tracking-widest" style={{ color: C.onSurface }}>Company</h5>
