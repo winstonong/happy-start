@@ -194,6 +194,16 @@ function HubSpotForm({ containerId = "hubspot-form" }: { containerId?: string })
   return <div id={containerId} />;
 }
 
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+});
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -203,6 +213,9 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Full-time remote staff from $4-$8/hr. Hire top 1% Philippine talent in days, not months." },
       { name: "twitter:title", content: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
       { name: "twitter:description", content: "Full-time remote staff from $4-$8/hr. Hire top 1% Philippine talent in days, not months." },
+    ],
+    scripts: [
+      { type: "application/ld+json", children: faqJsonLd },
     ],
   }),
   component: HomePage,
