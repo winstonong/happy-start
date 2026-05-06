@@ -93,19 +93,7 @@ const StarIcon = ({ size = 18 }: { size?: number }) => (
   </svg>
 );
 
-/* ─── HubSpot Embed ─── */
-function HubSpotEmbed({ containerId = "hubspot-hero-form" }: { containerId?: string }) {
-  const containerRef = { current: null as HTMLDivElement | null };
-  
-  if (typeof window !== "undefined") {
-    // Client-side only
-    const { useEffect, useRef } = require("react");
-  }
-
-  return (
-    <div id={containerId} />
-  );
-}
+/* ─── HubSpot Form ─── */
 
 /* ─── FAQ Accordion ─── */
 function FAQSection() {
