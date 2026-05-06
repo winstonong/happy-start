@@ -5,7 +5,6 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-// @ts-ignore css import
 import "../styles.css";
 
 function RootComponent() {
