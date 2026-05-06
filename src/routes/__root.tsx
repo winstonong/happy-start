@@ -82,6 +82,7 @@ function RootComponent() {
             &copy; {new Date().getFullYear()} Virtual Assistants Philippines. All rights reserved.
           </div>
         </footer>
+        <StickyBookingBar />
         <ScriptOnce
           children={`
             if (typeof window !== 'undefined') {
