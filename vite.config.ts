@@ -7,8 +7,8 @@ import path from "path";
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    react(),
     tanstackStart(),
+    react(),
   ],
   resolve: {
     alias: {
