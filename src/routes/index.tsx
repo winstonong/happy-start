@@ -260,7 +260,7 @@ function HomePage() {
                   src={p.logo}
                   alt={p.name}
                   loading="lazy"
-                  className="h-8 md:h-12 w-auto object-contain mb-6"
+                  className="h-12 md:h-16 lg:h-20 w-auto object-contain mb-8"
                   style={{ filter: "brightness(0)" }}
                 />
                 <p className="text-sm leading-relaxed font-medium" style={{ color: C.onSurfaceVariant }}>
