@@ -83,7 +83,7 @@ const HeadsetIcon = () => (
   </svg>
 );
 
-const serviceIcons: Record<string, () => React.ReactElement> = {
+const serviceIcons: Record<string, () => ReactElement> = {
   shield: ShieldIcon, wallet: WalletIcon, rocket: RocketIcon, headset: HeadsetIcon,
 };
 
