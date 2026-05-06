@@ -5,7 +5,9 @@ import {
   HeadContent,
   Scripts,
   ScriptOnce,
+  useRouter,
 } from "@tanstack/react-router";
+import { useEffect } from "react";
 import appCss from "../styles.css?url";
 
 const gtmScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,6 +17,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MBZB3GH2');`;
 
 function RootComponent() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsub = router.subscribe("onResolved", (evt) => {
+      (window as any).dataLayer?.push({
+        event: "page_view",
+        page_path: evt.toLocation.pathname,
+        page_title: document.title,
+      });
+    });
+    return unsub;
+  }, [router]);
+
   return (
     <html lang="en" className="antialiased scroll-smooth">
       <head>
