@@ -230,6 +230,10 @@ function HomePage() {
         <img
           src="/images/hero-v8.jpg"
           alt=""
+          width={1920}
+          height={1080}
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1437]/75 via-[#0B1437]/50 to-[#0B1437]/25" />
@@ -300,6 +304,8 @@ function HomePage() {
                 <img
                   src={p.logo}
                   alt={p.name}
+                  width={160}
+                  height={40}
                   loading="lazy"
                   className="h-10 md:h-14 lg:h-16 w-auto object-contain mb-8 opacity-100"
                   style={{ filter: "brightness(0)", maxHeight: "none" }}
@@ -552,6 +558,9 @@ function HomePage() {
                   <img
                     src={t.img}
                     alt={t.name}
+                    width={600}
+                    height={800}
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2" style={{ backgroundColor: "rgba(255,255,255,0.9)", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
