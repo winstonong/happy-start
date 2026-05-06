@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 
 const C = {
   primary: "#003d9b",
@@ -169,6 +170,9 @@ function CareersPage() {
         </div>
       </section>
 
+      {/* ─── Careers FAQ ─── */}
+      <CareersFAQ />
+
       {/* ─── CTA ─── */}
       <section className="py-24" style={{ backgroundColor: C.surface }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -191,5 +195,80 @@ function CareersPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+const careersFaqs = [
+  {
+    q: "What does the hiring process look like?",
+    a: "Our process has four steps: (1) submit your application online, (2) complete a skills assessment tailored to your role, (3) attend a video interview with our recruitment team, and (4) receive an offer — typically within 5–7 business days of applying.",
+  },
+  {
+    q: "Do I need to be in the Philippines to apply?",
+    a: "Yes — all of our current roles are for professionals based in the Philippines. Since every position is 100% remote, you can work from anywhere in the country.",
+  },
+  {
+    q: "What locations do you hire from?",
+    a: "We hire from all regions of the Philippines — Metro Manila, Cebu, Davao, Clark, Iloilo, and beyond. As long as you have a reliable internet connection and a quiet workspace, you're eligible.",
+  },
+  {
+    q: "What equipment or setup do I need?",
+    a: "You'll need a computer or laptop (minimum 8 GB RAM), a stable internet connection (at least 10 Mbps), a noise-cancelling headset, and a quiet, dedicated workspace.",
+  },
+  {
+    q: "Are there opportunities for career growth?",
+    a: "Absolutely. We offer ongoing training, mentorship, and clear advancement paths. Many of our team leads and managers started as virtual assistants and grew within the company.",
+  },
+  {
+    q: "Is Virtual Assistants Philippines an equal opportunity employer?",
+    a: "Yes. We are committed to creating a diverse and inclusive workplace. We do not discriminate based on race, religion, gender, sexual orientation, age, disability, or any other protected status. All qualified applicants receive equal consideration.",
+  },
+];
+
+function CareersFAQ() {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <section className="py-24" style={{ backgroundColor: C.surface }}>
+      <div className="max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-center mb-14" style={{ color: C.onSurface }}>
+          Careers FAQ
+        </h2>
+        <div className="space-y-3">
+          {careersFaqs.map((faq, i) => (
+            <div
+              key={i}
+              className="rounded-2xl overflow-hidden"
+              style={{
+                backgroundColor: "white",
+                border: `1px solid ${C.outlineVariant}`,
+                boxShadow: open === i ? "0 20px 40px rgba(11, 20, 55, 0.06)" : "none",
+              }}
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-center justify-between px-7 py-5 text-left font-bold transition-colors hover:bg-gray-50/50"
+                style={{ color: C.onSurface }}
+              >
+                <span>{faq.q}</span>
+                <svg
+                  className={`w-5 h-5 flex-shrink-0 ml-4 transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}
+                  style={{ color: C.onSurfaceVariant }}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${open === i ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}`}>
+                <div className="px-7 pb-5 leading-relaxed font-medium" style={{ color: C.onSurfaceVariant }}>
+                  {faq.a}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
