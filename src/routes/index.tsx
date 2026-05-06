@@ -276,7 +276,7 @@ function HomePage() {
               <span style={{ color: C.primary }}>Google Reviews</span> and{" "}
               <span style={{ color: C.primary }}>Glassdoor</span>
             </p>
-            <div className="flex justify-center gap-1 mt-3">
+            <div className="flex justify-center gap-1 mt-3 text-amber-400">
               {[...Array(4)].map((_, i) => <StarIcon key={i} size={28} />)}
               <svg width={28} height={28} viewBox="0 0 20 20">
                 <defs>
