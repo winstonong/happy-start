@@ -580,7 +580,7 @@ function HomePage() {
             <div className="flex flex-col space-y-4">
               <h5 className="font-bold text-sm uppercase tracking-widest" style={{ color: C.onSurface }}>Company</h5>
               <a href="#" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>LinkedIn</a>
-              <a href="#" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Careers</a>
+              <Link to="/careers" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Careers</Link>
             </div>
             <div className="flex flex-col space-y-4">
               <h5 className="font-bold text-sm uppercase tracking-widest" style={{ color: C.onSurface }}>Support</h5>
