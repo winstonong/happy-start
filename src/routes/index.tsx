@@ -187,6 +187,10 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
       { name: "description", content: "Full-time remote staff from $4-$8/hr. Hire in days, not months. Cancel anytime." },
+      { property: "og:title", content: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
+      { property: "og:description", content: "Full-time remote staff from $4-$8/hr. Hire top 1% Philippine talent in days, not months." },
+      { name: "twitter:title", content: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
+      { name: "twitter:description", content: "Full-time remote staff from $4-$8/hr. Hire top 1% Philippine talent in days, not months." },
     ],
   }),
   component: HomePage,

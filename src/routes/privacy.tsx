@@ -16,6 +16,8 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: "Privacy Policy for Virtual Assistants Philippines. Learn how we collect, use, and protect your personal information." },
       { property: "og:title", content: "Privacy Policy — Virtual Assistants Philippines" },
       { property: "og:description", content: "Privacy Policy for Virtual Assistants Philippines." },
+      { name: "twitter:title", content: "Privacy Policy — Virtual Assistants Philippines" },
+      { name: "twitter:description", content: "Learn how we collect, use, and protect your personal information." },
     ],
   }),
   component: PrivacyPage,

@@ -78,6 +78,8 @@ export const Route = createFileRoute("/careers")({
       { name: "description", content: "Join Virtual Assistants Philippines. Work remotely, earn competitive pay, and grow your career with a global outsourcing leader." },
       { property: "og:title", content: "Careers — Virtual Assistants Philippines" },
       { property: "og:description", content: "Join our team of 6,000+ remote professionals. Competitive pay, health benefits, and career growth." },
+      { name: "twitter:title", content: "Careers — Virtual Assistants Philippines" },
+      { name: "twitter:description", content: "Join 6,000+ remote professionals. Competitive pay, health benefits, and career growth." },
     ],
   }),
   component: CareersPage,
