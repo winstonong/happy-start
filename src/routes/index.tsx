@@ -584,7 +584,7 @@ function HomePage() {
             </div>
             <div className="flex flex-col space-y-4">
               <h5 className="font-bold text-sm uppercase tracking-widest" style={{ color: C.onSurface }}>Support</h5>
-              <a href="#contact" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Contact Us</a>
+              <Link to="/contact" className="text-sm font-medium transition-colors hover:underline" style={{ color: C.onSurfaceVariant }}>Contact Us</Link>
             </div>
           </div>
         </div>
