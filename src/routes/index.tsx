@@ -171,22 +171,33 @@ function HubSpotForm({ containerId = "hubspot-form" }: { containerId?: string })
         formId: "e84c4e9d-49d9-4c00-8607-66c9b1e89067",
         region: "na1",
         target: `#${containerId}`,
-        onFormSubmitted: () => {
+        onFormSubmitted: ($form: any, data: any) => {
           (window as any).dataLayer?.push({ event: "hubspot_form_submitted", form_location: containerId });
+
+          // Extract submitted field values
+          const fields = data?.submissionValues || {};
+          if (typeof (window as any).ChiliPiper?.submit === "function") {
+            (window as any).ChiliPiper.submit("bruntwork", "virtual-assistants-philippines", {
+              trigger: "ThirdPartyForm",
+              lead: {
+                firstname: fields.firstname || "",
+                lastname: fields.lastname || "",
+                email: fields.email || "",
+                phone: fields.phone || "",
+                message: fields.message || "",
+                country___website_form: fields.country___website_form || "",
+                company: fields.company || "",
+                do_you_have_a_website_: fields.do_you_have_a_website_ || "",
+                "0-2/website": fields["0-2/website"] || "",
+                type_of_employment: fields.type_of_employment || "",
+                hiring_through_company_or_individual: fields.hiring_through_company_or_individual || "",
+                Company: fields.Company || fields.company || "",
+                roughly_how_many_people_work_in_your_company_: fields.roughly_how_many_people_work_in_your_company_ || "",
+              },
+            });
+          }
         },
       });
-
-      // Load ChiliPiper Concierge
-      if (!document.getElementById("chilipiper-concierge")) {
-        const cpScript = document.createElement("script");
-        cpScript.id = "chilipiper-concierge";
-        cpScript.src = "https://bruntwork.chilipiper.com/concierge-js/cjs/concierge.js";
-        cpScript.crossOrigin = "anonymous";
-        cpScript.onload = () => {
-          (window as any).ChiliPiper?.deploy("bruntwork", "inbound-router-company-size-test", { formType: "Hubspot" });
-        };
-        document.body.appendChild(cpScript);
-      }
     };
     document.head.appendChild(script);
   }, [containerId]);
