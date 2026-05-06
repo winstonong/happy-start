@@ -220,7 +220,7 @@ function HomePage() {
               <p className="mb-6 font-medium" style={{ color: C.onSurfaceVariant }}>Tell us your hiring needs and get a shortlist of candidates within 48 hours.</p>
               <HubSpotForm containerId="hubspot-v8-hero" />
               <p className="text-center text-xs font-medium mt-4" style={{ color: C.onSurfaceVariant }}>
-                Risk-free. No credit card required to start.
+                Risk-free. 7 Day New Hire Guarantee
               </p>
             </div>
           </div>
