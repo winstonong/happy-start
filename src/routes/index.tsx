@@ -253,14 +253,15 @@ function HomePage() {
             {pressFeatures.map((p, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center justify-start p-6 text-center"
+                className="flex flex-col items-center justify-start px-8 py-6 text-center"
                 style={{ borderRight: i < pressFeatures.length - 1 ? `1px solid ${C.outlineVariant}` : "none" }}
               >
                 <img
                   src={p.logo}
                   alt={p.name}
                   loading="lazy"
-                  className="h-10 w-auto object-contain mb-5 grayscale"
+                  className="h-8 md:h-12 w-auto object-contain mb-6"
+                  style={{ filter: "brightness(0)" }}
                 />
                 <p className="text-sm leading-relaxed font-medium" style={{ color: C.onSurfaceVariant }}>
                   &lsquo;{p.quote}&rsquo;
