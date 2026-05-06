@@ -98,11 +98,14 @@ export const Route = createRootRoute({
     meta: [
       { title: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
       { name: "description", content: "Full-time remote staff from $4-$8/hr. Hire in days, not months. Cancel anytime." },
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Virtual Assistants Philippines" },
-      { property: "og:url", content: "https://www.virtualassistantphilippines.io" },
+      { property: "og:title", content: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
+      { name: "twitter:title", content: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
+      { property: "og:description", content: "Full-time remote staff from $4-$8/hr. Hire in days, not months. Cancel anytime." },
+      { name: "twitter:description", content: "Full-time remote staff from $4-$8/hr. Hire in days, not months. Cancel anytime." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/eb7257fe-8b93-4acd-98b9-1a56c95d2bd2" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/eb7257fe-8b93-4acd-98b9-1a56c95d2bd2" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@VAPhilippines" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
