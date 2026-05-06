@@ -163,6 +163,18 @@ function HubSpotForm({ containerId = "hubspot-form" }: { containerId?: string })
           (window as any).dataLayer?.push({ event: "hubspot_form_submitted", form_location: containerId });
         },
       });
+
+      // Load ChiliPiper Concierge
+      if (!document.getElementById("chilipiper-concierge")) {
+        const cpScript = document.createElement("script");
+        cpScript.id = "chilipiper-concierge";
+        cpScript.src = "https://bruntwork.chilipiper.com/concierge-js/cjs/concierge.js";
+        cpScript.crossOrigin = "anonymous";
+        cpScript.onload = () => {
+          (window as any).ChiliPiper?.deploy("bruntwork", "inbound-router-company-size-test", { formType: "Hubspot" });
+        };
+        document.body.appendChild(cpScript);
+      }
     };
     document.head.appendChild(script);
   }, [containerId]);
