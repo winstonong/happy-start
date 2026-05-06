@@ -8,6 +8,7 @@ import {
   useRouter,
 } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { StickyBookingBar } from "../components/StickyBookingBar";
 import appCss from "../styles.css?url";
 
 const gtmScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -81,6 +82,7 @@ function RootComponent() {
             &copy; {new Date().getFullYear()} Virtual Assistants Philippines. All rights reserved.
           </div>
         </footer>
+        <StickyBookingBar />
         <ScriptOnce
           children={`
             if (typeof window !== 'undefined') {
