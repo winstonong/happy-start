@@ -2,7 +2,7 @@ import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
 export function createRouter() {
-  const router = createTanStackRouter({
+  return createTanStackRouter({
     routeTree,
     defaultErrorComponent: ({ error }) => (
       <div style={{ padding: "2rem", textAlign: "center" }}>
@@ -11,8 +11,9 @@ export function createRouter() {
       </div>
     ),
   });
-  return router;
 }
+
+export const getRouter = createRouter;
 
 declare module "@tanstack/react-router" {
   interface Register {
