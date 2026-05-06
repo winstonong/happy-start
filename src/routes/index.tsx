@@ -132,6 +132,29 @@ function FAQSection() {
 
 /* ─── HubSpot Client Component ─── */
 function HubSpotForm({ containerId = "hubspot-form" }: { containerId?: string }) {
+  const loaded = useRef(false);
+
+  useEffect(() => {
+    if (loaded.current) return;
+    loaded.current = true;
+
+    const el = document.getElementById(containerId);
+    if (!el) return;
+
+    const script = document.createElement("script");
+    script.src = "//js.hsforms.net/forms/embed/v2.js";
+    script.charset = "utf-8";
+    script.onload = () => {
+      (window as any).hbspt?.forms?.create({
+        portalId: "8513837",
+        formId: "e84c4e9d-49d9-4c00-8607-66c9b1e89067",
+        region: "na1",
+        target: `#${containerId}`,
+      });
+    };
+    document.head.appendChild(script);
+  }, [containerId]);
+
   return <div id={containerId} />;
 }
 
