@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 
 const C = {
   primary: "#003d9b",
@@ -168,6 +169,9 @@ function CareersPage() {
           </div>
         </div>
       </section>
+
+      {/* ─── Careers FAQ ─── */}
+      <CareersFAQ />
 
       {/* ─── CTA ─── */}
       <section className="py-24" style={{ backgroundColor: C.surface }}>
