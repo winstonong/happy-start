@@ -93,6 +93,15 @@ const StarIcon = ({ size = 18 }: { size?: number }) => (
   </svg>
 );
 
+const pressFeatures = [
+  { logo: "/images/logos/forbes.png", name: "Forbes", quote: "Leading The Remote Outsourcing Revolution Targeting $180m and 10,000 Agents" },
+  { logo: "/images/logos/fastcompany.png", name: "Fast Company", quote: "Reimagining Global Employment With 6,000 New Hires Planned" },
+  { logo: "/images/logos/variety.png", name: "Variety", quote: "How BruntWork Became A Global Outsourcing Leader" },
+  { logo: "/images/logos/vanityfair.png", name: "Vanity Fair", quote: "BruntWork\u2019s Aggressive Expansion Strategy Now In Hyperdrive" },
+  { logo: "/images/logos/dailymail.png", name: "Daily Mail", quote: "BruntWork\u2019s Rapid Rise as the Go-To Virtual Assistant Powerhouse" },
+  { logo: "/images/logos/lofficiel.png", name: "L\u2019Officiel", quote: "BruntWork Bets Big On AI-Powered Remote-Only Global Recruitment" },
+];
+
 /* ─── HubSpot Form ─── */
 
 /* ─── FAQ Accordion ─── */
