@@ -1,7 +1,5 @@
-"use client";
-
-import Image from "next/image";
-import HubSpotEmbed from "@/components/shared/HubSpotEmbed";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
 /* ─── Design Tokens ─── */
 const C = {
@@ -20,7 +18,6 @@ const gradient = `linear-gradient(135deg, ${C.primary} 0%, ${C.primaryContainer}
 const ambientShadow = "0 20px 40px rgba(11, 20, 55, 0.06)";
 
 /* ─── Data ─── */
-
 const services = [
   { title: "Executive Admin", description: "Email management, scheduling, travel planning, and operational workflows that keep your business running.", icon: "shield" },
   { title: "Finance & Billing", description: "Bookkeeping, accounts payable/receivable, payroll processing, and financial reporting.", icon: "wallet" },
@@ -96,21 +93,9 @@ const StarIcon = ({ size = 18 }: { size?: number }) => (
   </svg>
 );
 
-const CheckIcon = () => (
-  <svg width={20} height={20} style={{ flexShrink: 0 }} fill="none" stroke="#34D399" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-  </svg>
-);
-
-const ArrowIcon = () => (
-  <svg width={16} height={16} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-);
+/* ─── HubSpot Form ─── */
 
 /* ─── FAQ Accordion ─── */
-import { useState } from "react";
-
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
@@ -145,28 +130,35 @@ function FAQSection() {
   );
 }
 
-/* ─── Page ─── */
+/* ─── HubSpot Client Component ─── */
+function HubSpotForm({ containerId = "hubspot-form" }: { containerId?: string }) {
+  return <div id={containerId} />;
+}
 
-export default function VariantH() {
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Virtual Assistants Philippines — Hire Remote Staff from $4/hr" },
+      { name: "description", content: "Full-time remote staff from $4-$8/hr. Hire in days, not months. Cancel anytime." },
+    ],
+  }),
+  component: HomePage,
+});
+
+function HomePage() {
   return (
     <div className="min-h-screen" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
 
       {/* ════════ HERO ════════ */}
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-32">
-        {/* Background image */}
-        <Image
+        <img
           src="/images/hero-v8.jpg"
           alt=""
-          fill
-          className="object-cover object-top"
-          sizes="100vw"
-          priority
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1437]/75 via-[#0B1437]/50 to-[#0B1437]/25" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left — copy */}
           <div className="animate-fadeIn">
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full mb-6 bg-white/10 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#00A86B" }} />
@@ -196,12 +188,11 @@ export default function VariantH() {
             </div>
           </div>
 
-          {/* Right — form card */}
           <div className="relative z-10 animate-fadeInUp">
             <div className="p-8 lg:p-10 rounded-[2.5rem] bg-white/95 backdrop-blur-md" style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.3)" }}>
               <h3 className="text-2xl font-bold mb-2" style={{ color: C.onSurface }}>Book Your Strategy Session</h3>
               <p className="mb-6 font-medium" style={{ color: C.onSurfaceVariant }}>Tell us your hiring needs and get a shortlist of candidates within 48 hours.</p>
-              <HubSpotEmbed containerId="hubspot-v8-hero" />
+              <HubSpotForm containerId="hubspot-v8-hero" />
               <p className="text-center text-xs font-medium mt-4" style={{ color: C.onSurfaceVariant }}>
                 Risk-free. No credit card required to start.
               </p>
@@ -345,7 +336,6 @@ export default function VariantH() {
       <section className="py-24" style={{ backgroundColor: C.surface }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="rounded-[3rem] p-12 lg:p-20 overflow-hidden relative" style={{ background: gradient, boxShadow: `0 25px 60px ${C.primary}30` }}>
-            {/* Decorative blurs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
 
@@ -426,12 +416,10 @@ export default function VariantH() {
             {talents.map((t, i) => (
               <div key={t.name} className={`group cursor-pointer ${i === 1 ? "md:mt-12" : ""}`}>
                 <div className="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative" style={{ boxShadow: ambientShadow }}>
-                  <Image
+                  <img
                     src={t.img}
                     alt={t.name}
-                    fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2" style={{ backgroundColor: "rgba(255,255,255,0.9)", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
                     <h6 className="font-bold text-lg" style={{ color: C.onSurface }}>{t.name}</h6>
@@ -459,7 +447,7 @@ export default function VariantH() {
             </p>
           </div>
           <div className="rounded-[2.5rem] p-8 lg:p-10" style={{ backgroundColor: "white", boxShadow: ambientShadow, border: `1px solid ${C.outlineVariant}` }}>
-            <HubSpotEmbed containerId="hubspot-v8-footer" />
+            <HubSpotForm containerId="hubspot-v8-footer" />
             <p className="text-center text-xs font-medium mt-4" style={{ color: C.onSurfaceVariant }}>
               No commitment &middot; No credit card &middot; Cancel anytime
             </p>
@@ -506,26 +494,6 @@ export default function VariantH() {
           </div>
         </div>
       </footer>
-
-      {/* Animations */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(30px) scale(0.97); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        .animate-fadeIn { animation: fadeIn 0.6s ease-out both; }
-        .animate-fadeInUp { animation: fadeInUp 0.6s ease-out 0.2s both; }
-        .v8-desktop-only { display: none; }
-        .v8-mobile-only { display: block; }
-        @media (min-width: 768px) {
-          .v8-desktop-only { display: block; }
-          .v8-mobile-only { display: none; }
-        }
-      `}} />
     </div>
   );
 }

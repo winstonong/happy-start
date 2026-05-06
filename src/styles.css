@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #1C1C1C;
+
+  --color-indigo-deep: #1E2A5E;
+  --color-amber-warm: #F5A623;
+  --color-off-white: #FAFAF7;
+  --color-lavender-light: #F0EDF6;
+
+  --color-forest: #0D4B3B;
+  --color-teal-bright: #2EC4B6;
+  --color-cream: #FAF8F6;
+  --color-mint-pale: #E8F5F1;
+
+  --color-navy: #0B1D51;
+  --color-gold: #C9A84C;
+  --color-warm-grey: #F5F5F0;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* Responsive show/hide for comparison tables */
+.v8-desktop-only { display: none; }
+.v8-mobile-only { display: block; }
+@media (min-width: 768px) {
+  .v8-desktop-only { display: block; }
+  .v8-mobile-only { display: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-fadeIn { animation: fadeIn 0.6s ease-out both; }
+.animate-fadeInUp { animation: fadeInUp 0.6s ease-out 0.2s both; }
