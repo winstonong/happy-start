@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     tanstackStart(),
+    react(),
   ],
   resolve: {
     alias: {
