@@ -29,7 +29,7 @@ function RootComponent() {
               <span className="text-base md:text-2xl truncate" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>Virtual Assistants Philippines</span>
             </Link>
             <a
-              href="#contact"
+              href="#hubspot-v8-hero"
               className="flex-shrink-0 inline-flex items-center px-3 md:px-5 py-2 md:py-2.5 bg-gray-900 text-white text-xs md:text-sm font-medium rounded-full hover:bg-gray-800 transition-colors whitespace-nowrap"
             >
               Get a Free Quote
