@@ -58,6 +58,18 @@ const faqs = [
   { q: "What if my VA isn't a good fit?", a: "We offer a 30-day satisfaction guarantee and free replacement at any time — no questions asked." },
   { q: "What tasks can a VA handle?", a: "Admin, email, scheduling, data entry, CRM, research, lead gen, customer service, social media, bookkeeping, and more." },
   { q: "Is there a minimum commitment?", a: "No long-term contracts. Month-to-month flexibility with 14 days notice to cancel." },
+  { q: "Where are your virtual assistants located?", a: "All of our virtual assistants are based in the Philippines — a country renowned for its large English-speaking workforce, strong work ethic, and cultural alignment with Western businesses." },
+  { q: "What time zones do your VAs work in?", a: "Our VAs work in your preferred time zone. Whether you need coverage during US, UK, or Australian business hours, we match you with professionals who align with your schedule." },
+  { q: "How do you vet and select your virtual assistants?", a: "We use a rigorous 7-step vetting process including skills testing, English proficiency assessments, personality evaluation, background checks, and real-world task simulations. Only the top 1% of applicants are accepted." },
+  { q: "Do I need to provide equipment or software?", a: "No. Our VAs come fully equipped with their own computer, high-speed internet, backup power supply, and noise-cancelling headset. We also handle all IT setup on our end." },
+  { q: "Can I hire more than one virtual assistant?", a: "Absolutely. Many clients start with one VA and scale to entire remote teams. We can build dedicated departments — admin, finance, sales, customer support — all managed under one account." },
+  { q: "How is communication handled with my VA?", a: "You communicate directly with your VA via your preferred tools — Slack, Microsoft Teams, Zoom, email, or any platform you already use. We also provide a dedicated account manager for escalation and support." },
+  { q: "What industries do you serve?", a: "We serve businesses across all industries including real estate, e-commerce, healthcare, legal, SaaS, finance, marketing agencies, coaching, and professional services. Our VAs are trained to adapt to industry-specific workflows." },
+  { q: "Is my data and information secure?", a: "Yes. All VAs sign NDAs and data security agreements before starting. We follow strict data handling protocols, and our VAs work in secure environments with monitored access controls." },
+  { q: "What happens if my VA is sick or on leave?", a: "We provide backup coverage so your operations are never interrupted. If your VA is unavailable, a trained replacement steps in immediately at no extra cost." },
+  { q: "How is billing structured?", a: "Billing is flat-rate and monthly based on the number of hours or full-time equivalents you hire. There are no setup fees, no recruitment fees, and no surprise charges. You receive a single, transparent invoice each month." },
+  { q: "Can my VA work on multiple projects or clients?", a: "Yes. Your VA is dedicated to you, but they can absolutely manage multiple projects, brands, or client accounts on your behalf — just like an in-house team member would." },
+  { q: "What tools and software are your VAs proficient in?", a: "Our VAs are trained in 100+ tools including Google Workspace, Microsoft Office, Slack, Asana, Trello, HubSpot, Salesforce, QuickBooks, Xero, Shopify, WordPress, Canva, and many more. If your stack is unique, we'll train them on it." },
 ];
 
 /* ─── Icons ─── */
