@@ -150,6 +150,9 @@ function HubSpotForm({ containerId = "hubspot-form" }: { containerId?: string })
         formId: "e84c4e9d-49d9-4c00-8607-66c9b1e89067",
         region: "na1",
         target: `#${containerId}`,
+        onFormSubmitted: () => {
+          (window as any).dataLayer?.push({ event: "hubspot_form_submitted", form_location: containerId });
+        },
       });
     };
     document.head.appendChild(script);
