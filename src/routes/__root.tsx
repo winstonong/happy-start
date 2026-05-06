@@ -76,6 +76,23 @@ function RootComponent() {
             &copy; {new Date().getFullYear()} Virtual Assistants Philippines. All rights reserved.
           </div>
         </footer>
+        <ScriptOnce
+          children={`
+            (function() {
+              var s = document.createElement('script');
+              s.id = 'chilipiper-concierge';
+              s.src = 'https://bruntwork.chilipiper.com/concierge-js/cjs/concierge.js';
+              s.crossOrigin = 'anonymous';
+              s.onload = function() {
+                ChiliPiper.deploy("bruntwork", "virtual-assistants-philippines", {
+                  "formType": "Hubspot",
+                  "formIds": ["e84c4e9d-49d9-4c00-8607-66c9b1e89067"]
+                });
+              };
+              document.body.appendChild(s);
+            })();
+          `}
+        />
         <Scripts />
       </body>
     </html>
