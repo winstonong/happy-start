@@ -61,6 +61,8 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch with Virtual Assistants Philippines. Tell us your hiring needs and get a shortlist of candidates within 48 hours." },
       { property: "og:title", content: "Contact Us — Virtual Assistants Philippines" },
       { property: "og:description", content: "Reach out to hire top-tier remote staff from the Philippines." },
+      { name: "twitter:title", content: "Contact Us — Virtual Assistants Philippines" },
+      { name: "twitter:description", content: "Tell us your hiring needs and get a shortlist of candidates within 48 hours." },
     ],
   }),
   component: ContactPage,

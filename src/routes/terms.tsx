@@ -16,6 +16,8 @@ export const Route = createFileRoute("/terms")({
       { name: "description", content: "Terms and Conditions for Virtual Assistants Philippines. Read our terms of service before using our website and services." },
       { property: "og:title", content: "Terms & Conditions — Virtual Assistants Philippines" },
       { property: "og:description", content: "Terms and Conditions for Virtual Assistants Philippines." },
+      { name: "twitter:title", content: "Terms & Conditions — Virtual Assistants Philippines" },
+      { name: "twitter:description", content: "Read our terms of service before using our website and services." },
     ],
   }),
   component: TermsPage,
