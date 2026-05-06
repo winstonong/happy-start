@@ -96,10 +96,10 @@ const StarIcon = ({ size = 18 }: { size?: number }) => (
 const pressFeatures = [
   { logo: "/images/logos/forbes.png", name: "Forbes", quote: "Leading The Remote Outsourcing Revolution Targeting $180m and 10,000 Agents" },
   { logo: "/images/logos/fastcompany.png", name: "Fast Company", quote: "Reimagining Global Employment With 6,000 New Hires Planned" },
-  { logo: "/images/logos/variety.png", name: "Variety", quote: "How VA Philippines Became A Global Outsourcing Leader" },
-  { logo: "/images/logos/vanityfair.png", name: "Vanity Fair", quote: "VA Philippines\u2019s Aggressive Expansion Strategy Now In Hyperdrive" },
-  { logo: "/images/logos/dailymail.png", name: "Daily Mail", quote: "VA Philippines\u2019s Rapid Rise as the Go-To Virtual Assistant Powerhouse" },
-  { logo: "/images/logos/lofficiel.png", name: "L\u2019Officiel", quote: "VA Philippines Bets Big On AI-Powered Remote-Only Global Recruitment" },
+  { logo: "/images/logos/variety.png", name: "Variety", quote: "How Virtual Assistants PH Became A Global Outsourcing Leader" },
+  { logo: "/images/logos/vanityfair.png", name: "Vanity Fair", quote: "Virtual Assistants PH\u2019s Aggressive Expansion Strategy Now In Hyperdrive" },
+  { logo: "/images/logos/dailymail.png", name: "Daily Mail", quote: "Virtual Assistants PH\u2019s Rapid Rise as the Go-To Virtual Assistant Powerhouse" },
+  { logo: "/images/logos/lofficiel.png", name: "L\u2019Officiel", quote: "Virtual Assistants PH Bets Big On AI-Powered Remote-Only Global Recruitment" },
 ];
 
 /* ─── HubSpot Form ─── */
@@ -253,14 +253,15 @@ function HomePage() {
             {pressFeatures.map((p, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center justify-start p-6 text-center"
+                className="flex flex-col items-center justify-start px-8 py-6 text-center"
                 style={{ borderRight: i < pressFeatures.length - 1 ? `1px solid ${C.outlineVariant}` : "none" }}
               >
                 <img
                   src={p.logo}
                   alt={p.name}
                   loading="lazy"
-                  className="h-10 w-auto object-contain mb-5 grayscale"
+                  className="h-8 md:h-12 w-auto object-contain mb-6"
+                  style={{ filter: "brightness(0)" }}
                 />
                 <p className="text-sm leading-relaxed font-medium" style={{ color: C.onSurfaceVariant }}>
                   &lsquo;{p.quote}&rsquo;
