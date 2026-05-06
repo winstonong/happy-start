@@ -241,7 +241,7 @@ function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-4">
             <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: C.onSurface }}>
-              Leading Website For Outsourced Talent
+              Leading Website For Virtual Assistants
             </h2>
           </div>
           <p className="text-center mb-10">
