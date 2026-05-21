@@ -182,9 +182,9 @@ function StartPage() {
           delegate.
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-20 lg:pt-20 lg:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-16 lg:pt-20 lg:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-start">
           {/* LEFT: editorial copy */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-5">
             <div
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.14em] mb-7"
               style={{ backgroundColor: T.ink, color: "white" }}
@@ -193,19 +193,19 @@ function StartPage() {
               Now hiring for your business
             </div>
 
-            <h1 className="font-black leading-[0.92] mb-7" style={{ ...display, fontSize: "clamp(2.6rem, 6.2vw, 5.4rem)" }}>
+            <h1 className="font-black leading-[0.92] mb-7" style={{ ...display, fontSize: "clamp(2.6rem, 5.4vw, 4.6rem)" }}>
               Hire top remote talent —{" "}
               <span style={serif} className="font-normal italic">
                 fast.
               </span>
             </h1>
 
-            <p className="text-lg lg:text-xl max-w-xl mb-8 leading-relaxed" style={{ color: T.inkSoft }}>
+            <p className="text-lg max-w-xl mb-8 leading-relaxed" style={{ color: T.inkSoft }}>
               Vetted, full-time virtual assistants in your time zone. From <strong style={{ color: T.ink }}>$4/hr</strong>, live in your business within a week. No contracts, cancel any time.
             </p>
 
             {/* badges row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 max-w-2xl">
+            <div className="grid grid-cols-2 gap-3 mb-10 max-w-md">
               {heroBadges.map((b) => (
                 <div key={b.k} className="bg-white rounded-2xl px-4 py-3" style={{ border: `1px solid ${T.line}` }}>
                   <div className="text-base font-black tracking-tight" style={display}>{b.k}</div>
@@ -242,27 +242,55 @@ function StartPage() {
             </div>
           </div>
 
-          {/* RIGHT: form card */}
-          <div className="lg:col-span-5">
-            <div
-              className="bg-white rounded-[28px] p-7 lg:p-8 relative"
-              style={{
-                minHeight: 620,
-                boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -20px rgba(10,10,10,0.18), 0 18px 40px -18px rgba(10,10,10,0.12)",
-                border: `1px solid ${T.line}`,
-              }}
-            >
-              {/* sticky little tag */}
-              <div className="absolute -top-3 left-7 inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase" style={{ backgroundColor: T.accent, color: "white" }}>
-                Free consultation
+          {/* RIGHT: photo + overlapping form card */}
+          <div className="lg:col-span-7">
+            <div className="relative">
+              {/* Photo frame — visible on desktop, hidden on mobile to keep form prominent */}
+              <div
+                className="hidden lg:block relative overflow-hidden rounded-[28px]"
+                style={{
+                  aspectRatio: "5 / 6",
+                  border: `1px solid ${T.line}`,
+                  boxShadow: "0 20px 50px -25px rgba(10,10,10,0.25)",
+                }}
+              >
+                <img
+                  src={heroPhoto}
+                  alt="Professional virtual assistant ready to start work"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: "28% center" }}
+                />
+                {/* soft gradient on right to seat the form */}
+                <div
+                  aria-hidden
+                  className="absolute inset-y-0 right-0 w-2/3"
+                  style={{
+                    background: "linear-gradient(to left, rgba(255,255,255,0.55), rgba(255,255,255,0))",
+                  }}
+                />
               </div>
-              <h2 className="text-2xl font-black mb-1.5" style={display}>
-                Book your call
-              </h2>
-              <p className="text-sm mb-6" style={{ color: T.muted }}>
-                Tell us about the role. We'll come back with a shortlist within 48 hours.
-              </p>
-              <HubSpotForm containerId="hubspot-start-hero" />
+
+              {/* Form card — floats over right side on desktop, full width on mobile */}
+              <div
+                className="bg-white rounded-[28px] p-7 lg:p-8 relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[58%]"
+                style={{
+                  minHeight: 620,
+                  boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -20px rgba(10,10,10,0.22), 0 18px 40px -18px rgba(10,10,10,0.14)",
+                  border: `1px solid ${T.line}`,
+                }}
+              >
+                {/* sticky little tag */}
+                <div className="absolute -top-3 left-7 inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase" style={{ backgroundColor: T.accent, color: "white" }}>
+                  Free consultation
+                </div>
+                <h2 className="text-2xl font-black mb-1.5" style={display}>
+                  Book your call
+                </h2>
+                <p className="text-sm mb-6" style={{ color: T.muted }}>
+                  Tell us about the role. We'll come back with a shortlist within 48 hours.
+                </p>
+                <HubSpotForm containerId="hubspot-start-hero" />
+              </div>
             </div>
           </div>
         </div>
