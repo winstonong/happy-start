@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+import heroPhoto from "@/assets/start-hero.jpg";
 
 /* ─── Tokens (mirroring the inspiration's clean editorial look) ─── */
 const T = {
