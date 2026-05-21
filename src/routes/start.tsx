@@ -132,13 +132,14 @@ function StartPage() {
       {/* ════════ HERO ════════ */}
       <section className="relative overflow-hidden">
         <img
-          src="/images/hero-v8.jpg"
+          src={heroPhoto}
           alt=""
           width={1920}
           height={1080}
           loading="eager"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "75% center" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent lg:via-white/70" />
 
