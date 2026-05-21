@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as StartRouteImport } from './routes/start'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
@@ -25,6 +26,11 @@ const ThankYouRoute = ThankYouRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartRoute = StartRouteImport.update({
+  id: '/start',
+  path: '/start',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/start': typeof StartRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
   '/api/health': typeof ApiHealthRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/start': typeof StartRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
   '/api/health': typeof ApiHealthRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/start': typeof StartRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
   '/api/health': typeof ApiHealthRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/privacy'
+    | '/start'
     | '/terms'
     | '/thank-you'
     | '/api/health'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/privacy'
+    | '/start'
     | '/terms'
     | '/thank-you'
     | '/api/health'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/privacy'
+    | '/start'
     | '/terms'
     | '/thank-you'
     | '/api/health'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   PrivacyRoute: typeof PrivacyRoute
+  StartRoute: typeof StartRoute
   TermsRoute: typeof TermsRoute
   ThankYouRoute: typeof ThankYouRoute
   ApiHealthRoute: typeof ApiHealthRoute
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start': {
+      id: '/start'
+      path: '/start'
+      fullPath: '/start'
+      preLoaderRoute: typeof StartRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   PrivacyRoute: PrivacyRoute,
+  StartRoute: StartRoute,
   TermsRoute: TermsRoute,
   ThankYouRoute: ThankYouRoute,
   ApiHealthRoute: ApiHealthRoute,
