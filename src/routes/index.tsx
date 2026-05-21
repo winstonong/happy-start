@@ -106,12 +106,12 @@ const StarIcon = ({ size = 18 }: { size?: number }) => (
 );
 
 const pressFeatures = [
-  { logo: "/images/logos/forbes.png", name: "Forbes", quote: "Leading The Remote Outsourcing Revolution Targeting $180m and 10,000 Agents" },
-  { logo: "/images/logos/fastcompany.png", name: "Fast Company", quote: "Reimagining Global Employment With 6,000 New Hires Planned" },
-  { logo: "/images/logos/variety.png", name: "Variety", quote: "How Virtual Assistants PH Became A Global Outsourcing Leader" },
-  { logo: "/images/logos/vanityfair.png", name: "Vanity Fair", quote: "Virtual Assistants PH\u2019s Aggressive Expansion Strategy Now In Hyperdrive" },
-  { logo: "/images/logos/dailymail.png", name: "Daily Mail", quote: "Virtual Assistants PH\u2019s Rapid Rise as the Go-To Virtual Assistant Powerhouse" },
-  { logo: "/images/logos/lofficiel.png", name: "L\u2019Officiel", quote: "Virtual Assistants PH Bets Big On AI-Powered Remote-Only Global Recruitment" },
+  { logo: "/images/logos/forbes.webp", name: "Forbes", quote: "Leading The Remote Outsourcing Revolution Targeting $180m and 10,000 Agents" },
+  { logo: "/images/logos/fastcompany.webp", name: "Fast Company", quote: "Reimagining Global Employment With 6,000 New Hires Planned" },
+  { logo: "/images/logos/variety.webp", name: "Variety", quote: "How Virtual Assistants PH Became A Global Outsourcing Leader" },
+  { logo: "/images/logos/vanityfair.webp", name: "Vanity Fair", quote: "Virtual Assistants PH\u2019s Aggressive Expansion Strategy Now In Hyperdrive" },
+  { logo: "/images/logos/dailymail.webp", name: "Daily Mail", quote: "Virtual Assistants PH\u2019s Rapid Rise as the Go-To Virtual Assistant Powerhouse" },
+  { logo: "/images/logos/lofficiel.webp", name: "L\u2019Officiel", quote: "Virtual Assistants PH Bets Big On AI-Powered Remote-Only Global Recruitment" },
 ];
 
 /* ─── HubSpot Form ─── */
@@ -250,7 +250,7 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1437]/75 via-[#0B1437]/50 to-[#0B1437]/25" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="animate-fadeIn">
+          <div>
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full mb-6 bg-white/10 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#00A86B" }} />
               <span className="text-sm font-bold uppercase tracking-wider text-blue-200">Top 1% Philippine Talent</span>
@@ -279,8 +279,8 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-10 animate-fadeInUp scroll-mt-20" id="hubspot-v8-hero-anchor">
-            <div className="p-8 lg:p-10 rounded-[2.5rem] bg-white/95 backdrop-blur-md" style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.3)" }}>
+          <div className="relative z-10 scroll-mt-20" id="hubspot-v8-hero-anchor">
+            <div className="p-8 lg:p-10 rounded-[2.5rem] bg-white/95 backdrop-blur-md" style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.3)", minHeight: 600 }}>
               <h3 className="text-2xl font-bold mb-2" style={{ color: C.onSurface }}>Book Your Strategy Session</h3>
               <p className="mb-6 font-medium" style={{ color: C.onSurfaceVariant }}>Tell us your hiring needs and get a shortlist of candidates within 48 hours.</p>
               <HubSpotForm containerId="hubspot-v8-hero" />
