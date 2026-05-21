@@ -139,9 +139,8 @@ function StartPage() {
           loading="eager"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "75% center" }}
+          style={{ objectPosition: "25% center", transform: "scaleX(-1)" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent lg:via-white/70" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.25)]" style={{ minHeight: 640 }}>
