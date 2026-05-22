@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import heroPhoto from "@/assets/start-hero.jpg";
+import heroPhoto from "@/assets/start-hero-wide.jpg";
 
 /* ─── Tokens (mirroring the inspiration's clean editorial look) ─── */
 const T = {
@@ -134,12 +134,12 @@ function StartPage() {
         <img
           src={heroPhoto}
           alt=""
-          width={1920}
-          height={1080}
+          width={1632}
+          height={672}
           loading="eager"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center top", transform: "scaleX(-1.1) scaleY(1.1) translateX(-14%) translateY(4%)" }}
+          style={{ objectPosition: "right center" }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
