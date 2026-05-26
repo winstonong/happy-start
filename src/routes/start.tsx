@@ -139,7 +139,7 @@ function StartPage() {
           loading="eager"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "right center" }}
+          style={{ objectPosition: "right top" }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
