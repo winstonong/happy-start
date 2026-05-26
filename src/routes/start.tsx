@@ -144,12 +144,9 @@ function StartPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.25)]" style={{ minHeight: 640 }}>
-            <h1 className="text-4xl lg:text-5xl font-black tracking-tight leading-[1.05] mb-4" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
-              Hire top remote talent — fast
+            <h1 className="text-4xl lg:text-5xl font-black tracking-tight leading-[1.05] mb-7" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+              $4-$8 Per Hour Virtual Assistants
             </h1>
-            <p className="text-base lg:text-lg mb-7 font-medium" style={{ color: T.inkSoft }}>
-              Full-time remote staff from $4/hr. Hire in days, not months. Cancel any time.
-            </p>
             <HubSpotForm containerId="hubspot-start-hero" />
           </div>
 
