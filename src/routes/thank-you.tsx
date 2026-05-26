@@ -59,13 +59,6 @@ function ThankYouPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
-          <Link
-            to="/careers"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold tracking-wide transition-all duration-300 hover:-translate-y-1"
-            style={{ color: C.primary, border: `2px solid ${C.primary}` }}
-          >
-            View Careers
-          </Link>
         </div>
       </div>
     </div>
