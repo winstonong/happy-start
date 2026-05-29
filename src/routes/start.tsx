@@ -248,7 +248,14 @@ function StartPage() {
       <section className="py-24 lg:py-28" style={{ backgroundColor: T.navy, color: "white" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div />
+            <div className="flex items-center">
+              <img
+                src={fitsPerfectlyPhoto}
+                alt="Virtual assistants collaborating in office"
+                className="w-full h-auto rounded-2xl object-cover shadow-2xl"
+                loading="lazy"
+              />
+            </div>
             <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-2xl" style={{ color: T.ink }}>
               <h2 className="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] mb-5" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
                 Get a VA who fits perfectly in your business
