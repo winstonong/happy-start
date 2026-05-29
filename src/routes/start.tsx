@@ -11,9 +11,9 @@ const T = {
   line: "#E4E4E7",
   surface: "#FFFFFF",
   surfaceMuted: "#F5F5F4",
-  navy: "#1A2754",
-  navyDeep: "#13204A",
-  navyCard: "#22356A",
+  navy: "#0E1B4D",
+  navyDeep: "#091238",
+  navyCard: "#19286A",
   lavender: "#ECECF5",
   blue: "#2962FF",
   blueHover: "#1E4DD8",
@@ -76,10 +76,23 @@ const press = [
 ];
 
 const qualities = [
-  { t: "Excellent communication skills", d: "Strong English — verbal and written — paired with a friendly, professional demeanour." },
-  { t: "Equipped and ready to work", d: "Quiet workspace, high-spec computer, reliable internet, and access to cloud-based tools." },
-  { t: "Time management", d: "One of the top qualities we screen for, so your tasks get done quickly and on schedule." },
+  { t: "Excellent communication skills", d: "Strong English — verbal and written — paired with a friendly, professional demeanour.", icon: "chat" },
+  { t: "Equipped and ready to work", d: "Quiet workspace, high-spec computer, reliable internet, and access to cloud-based tools.", icon: "monitor" },
+  { t: "Time management", d: "One of the top qualities we screen for, so your tasks get done quickly and on schedule.", icon: "clock" },
 ];
+
+function QualityIcon({ name }: { name: string }) {
+  const common = "w-5 h-5";
+  if (name === "chat") return (
+    <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  );
+  if (name === "monitor") return (
+    <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+  );
+  return (
+    <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+  );
+}
 
 const benefits = [
   { t: "No lock-in contracts", d: "Stay month to month with no long-term commitment." },
@@ -247,8 +260,8 @@ function StartPage() {
       {/* ════════ FITS PERFECTLY (navy) ════════ */}
       <section className="py-24 lg:py-28" style={{ backgroundColor: T.navy, color: "white" }}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="flex items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+            <div className="relative lg:pr-0 z-10">
               <img
                 src={fitsPerfectlyPhoto}
                 alt="Virtual assistants collaborating in office"
@@ -256,7 +269,10 @@ function StartPage() {
                 loading="lazy"
               />
             </div>
-            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-2xl" style={{ color: T.ink }}>
+            <div
+              className="bg-white rounded-2xl p-8 lg:p-12 shadow-2xl lg:-ml-16 relative z-20"
+              style={{ color: T.ink }}
+            >
               <h2 className="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] mb-5" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
                 Get a VA who fits perfectly in your business
               </h2>
@@ -278,7 +294,13 @@ function StartPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {qualities.map((q, i) => (
               <div key={i} className="p-7 rounded-xl" style={{ backgroundColor: T.navyCard }}>
-                <h3 className="text-lg font-bold mb-3" style={{ color: T.blue, fontFamily: "'Poppins', system-ui, sans-serif" }}>{q.t}</h3>
+                <div
+                  className="w-11 h-11 rounded-full flex items-center justify-center mb-5 text-white"
+                  style={{ backgroundColor: T.blue }}
+                >
+                  <QualityIcon name={q.icon} />
+                </div>
+                <h3 className="text-lg font-bold mb-3" style={{ color: "#6B8AFF", fontFamily: "'Poppins', system-ui, sans-serif" }}>{q.t}</h3>
                 <p className="text-sm leading-relaxed text-white/85">{q.d}</p>
               </div>
             ))}
