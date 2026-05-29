@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import heroPhoto from "@/assets/start-hero-wide.jpg";
 
-/* ─── Tokens ─── */
+/* ─── Tokens (mirroring the source page palette) ─── */
 const T = {
   ink: "#0A0A0A",
   inkSoft: "#3F3F46",
@@ -10,7 +10,12 @@ const T = {
   line: "#E4E4E7",
   surface: "#FFFFFF",
   surfaceMuted: "#F5F5F4",
-  accent: "#000000",
+  navy: "#1A2754",
+  navyDeep: "#13204A",
+  navyCard: "#22356A",
+  lavender: "#ECECF5",
+  blue: "#2962FF",
+  blueHover: "#1E4DD8",
 };
 
 /* ─── HubSpot form ─── */
@@ -238,91 +243,81 @@ function StartPage() {
         </div>
       </section>
 
-      {/* ════════ FITS PERFECTLY ════════ */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-4xl lg:text-5xl font-black tracking-tight leading-[1.05] mb-6" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
-              Get a VA who fits perfectly in your business
-            </h2>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: T.inkSoft }}>
-              Our Virtual Assistants are skilled professionals ready to tackle a wide range of tasks, tailored to your unique needs.
-            </p>
-            <a
-              href="#hubspot-start-footer"
-              className="inline-flex items-center px-6 py-3.5 rounded-full font-bold text-sm tracking-wide bg-black text-white hover:bg-gray-800 transition-colors"
-            >
-              Contact us today →
-            </a>
+      {/* ════════ FITS PERFECTLY (navy) ════════ */}
+      <section className="py-24 lg:py-28" style={{ backgroundColor: T.navy, color: "white" }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div />
+            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-2xl" style={{ color: T.ink }}>
+              <h2 className="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] mb-5" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
+                Get a VA who fits perfectly in your business
+              </h2>
+              <p className="text-base leading-relaxed mb-7" style={{ color: T.inkSoft }}>
+                Our Virtual Assistants are skilled professionals ready to tackle a wide range of tasks, tailored to your unique needs.
+              </p>
+              <a
+                href="#hubspot-start-footer"
+                className="inline-flex items-center px-6 py-3 rounded-md font-bold text-sm tracking-wide text-white transition-colors"
+                style={{ backgroundColor: T.blue }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = T.blueHover)}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = T.blue)}
+              >
+                Contact Us Today
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {qualities.map((q, i) => (
-              <div key={i} className="p-6 rounded-2xl" style={{ backgroundColor: T.surfaceMuted, border: `1px solid ${T.line}` }}>
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm bg-black text-white">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-1" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>{q.t}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: T.inkSoft }}>{q.d}</p>
-                  </div>
-                </div>
+              <div key={i} className="p-7 rounded-xl" style={{ backgroundColor: T.navyCard }}>
+                <h3 className="text-lg font-bold mb-3" style={{ color: T.blue, fontFamily: "'Poppins', system-ui, sans-serif" }}>{q.t}</h3>
+                <p className="text-sm leading-relaxed text-white/85">{q.d}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ════════ ANY TASK / BENEFITS ════════ */}
-      <section className="py-24" style={{ backgroundColor: T.ink, color: "white" }}>
+      {/* ════════ ANY TASK / BENEFITS (lavender) ════════ */}
+      <section className="py-24" style={{ backgroundColor: T.lavender }}>
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-center max-w-4xl mx-auto mb-16 leading-tight" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
-            Virtual Assistants for any task
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-center mb-14 leading-tight" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+            Virtual Assistants For Any Task
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 24, overflow: "hidden" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {benefits.map((b, i) => (
-              <div key={i} className="p-8 lg:p-10" style={{ backgroundColor: T.ink }}>
-                <div className="text-2xl lg:text-3xl font-black tracking-tight mb-3" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
+              <div key={i} className="bg-white rounded-xl px-7 py-8 text-center" style={{ border: `1px solid ${T.line}` }}>
+                <div className="text-lg font-bold mb-2" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
                   {b.t}
                 </div>
-                <p className="text-base font-medium text-white/70">{b.d}</p>
+                <p className="text-sm leading-relaxed" style={{ color: T.inkSoft }}>{b.d}</p>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <a
-              href="#hubspot-start-footer"
-              className="inline-flex items-center px-6 py-3.5 rounded-full font-bold text-sm tracking-wide bg-white text-black hover:bg-gray-100 transition-colors"
-            >
-              Book a free call →
-            </a>
           </div>
         </div>
       </section>
 
-      {/* ════════ FAQ ════════ */}
-      <section className="py-24" style={{ backgroundColor: T.surfaceMuted }}>
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-center mb-4" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
+      {/* ════════ FAQ (white) ════════ */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-center mb-4 leading-tight" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
             FAQs about our Virtual Assistant services
           </h2>
-          <p className="text-center text-lg mb-12" style={{ color: T.inkSoft }}>
+          <p className="text-center text-base md:text-lg mb-12 max-w-3xl mx-auto" style={{ color: T.inkSoft }}>
             From entrepreneurs to globally listed companies, we help scale quality labour solutions on time and well below the equivalent local cost.
           </p>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
             {faqs.map((f, i) => (
-              <details key={i} className="group bg-white rounded-2xl overflow-hidden" style={{ border: `1px solid ${T.line}` }}>
-                <summary className="flex items-center justify-between px-7 py-5 cursor-pointer font-bold text-base list-none" style={{ color: T.ink }}>
-                  <span>{f.q}</span>
-                  <svg className="w-5 h-5 ml-4 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <details key={i} className="group rounded-lg overflow-hidden self-start" style={{ border: `1px solid ${T.line}`, backgroundColor: "white" }}>
+                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-semibold text-sm list-none" style={{ color: T.ink }}>
+                  <span className="pr-4">{f.q}</span>
+                  <svg className="w-4 h-4 flex-shrink-0 transition-transform group-open:rotate-180" style={{ color: T.blue }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </summary>
-                <div className="px-7 pb-5 leading-relaxed font-medium" style={{ color: T.inkSoft }}>
+                <div className="px-5 pb-5 text-sm leading-relaxed" style={{ color: T.inkSoft }}>
                   {f.a}
                 </div>
               </details>
@@ -332,37 +327,52 @@ function StartPage() {
           <div className="text-center mt-12">
             <a
               href="#hubspot-start-footer"
-              className="inline-flex items-center px-6 py-3.5 rounded-full font-bold text-sm tracking-wide bg-black text-white hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center px-7 py-3 rounded-md font-bold text-sm tracking-wide text-white transition-colors"
+              style={{ backgroundColor: T.blue }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = T.blueHover)}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = T.blue)}
             >
-              Contact us today →
+              Contact Us Today
             </a>
           </div>
         </div>
       </section>
 
-      {/* ════════ TESTIMONIALS ════════ */}
-      <section className="py-24">
+      {/* ════════ TESTIMONIALS (lavender) ════════ */}
+      <section className="py-24" style={{ backgroundColor: T.lavender }}>
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-center mb-4" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
-            Hear about the Virtual Assistants Philippines experience direct from our clients
-          </h2>
-          <p className="text-center text-lg mb-12" style={{ color: T.inkSoft }}>
-            With 4.9 stars from over 2,000 reviews across Trustpilot, Google Reviews and Glassdoor.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+                Hear about the Virtual Assistants Philippines experience direct from our clients
+              </h2>
+            </div>
+            <div className="flex flex-col gap-5">
+              <p className="text-base md:text-lg" style={{ color: T.inkSoft }}>
+                With 4.9 stars from over 2,000 reviews across Trustpilot, Google Reviews and Glassdoor
+              </p>
+              <a
+                href="#hubspot-start-footer"
+                className="self-start inline-flex items-center px-6 py-3 rounded-md font-bold text-sm tracking-wide text-white transition-colors"
+                style={{ backgroundColor: T.blue }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = T.blueHover)}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = T.blue)}
+              >
+                Contact Us Today
+              </a>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="p-8 rounded-3xl flex flex-col" style={{ border: `1px solid ${T.line}`, backgroundColor: "white" }}>
-                <div className="text-4xl font-black mb-4 leading-none" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
-                  &ldquo;
-                </div>
-                <p className="text-base leading-relaxed mb-6 flex-1" style={{ color: T.inkSoft }}>
-                  {t.quote}
+              <div key={i} className="p-7 rounded-xl flex flex-col bg-white" style={{ border: `1px solid ${T.line}` }}>
+                <p className="text-sm leading-relaxed italic mb-6 flex-1" style={{ color: T.inkSoft }}>
+                  &ldquo;{t.quote}&rdquo;
                 </p>
                 <div style={{ borderTop: `1px solid ${T.line}` }} className="pt-4">
-                  <div className="font-bold text-base" style={{ color: T.ink }}>{t.name}</div>
-                  <div className="text-sm" style={{ color: T.muted }}>{t.title}</div>
-                  <div className="text-sm font-medium" style={{ color: T.ink }}>{t.company}</div>
+                  <div className="font-bold text-sm" style={{ color: T.ink }}>{t.name}</div>
+                  <div className="text-xs" style={{ color: T.muted }}>{t.title}</div>
+                  <div className="text-xs font-semibold mt-0.5" style={{ color: T.blue }}>{t.company}</div>
                 </div>
               </div>
             ))}
@@ -370,33 +380,45 @@ function StartPage() {
         </div>
       </section>
 
-      {/* ════════ FINAL CTA / FORM ════════ */}
-      <section className="py-24" style={{ backgroundColor: T.ink, color: "white" }}>
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="text-4xl lg:text-5xl font-black tracking-tight leading-[1.05] mb-6" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
-              Get a free consultation with a Virtual Assistants Philippines expert today
-            </h2>
-            <p className="text-lg leading-relaxed text-white/75 mb-6">
-              Tell us about the role. We'll come back with a shortlist of vetted candidates — no obligation.
-            </p>
-            <ul className="space-y-3">
-              {["Free 15-minute consultation", "Shortlist within days", "No lock-in, cancel any time"].map((x, i) => (
-                <li key={i} className="flex items-center gap-3 text-white/85 text-base">
-                  <span className="w-2 h-2 rounded-full bg-white" />
-                  {x}
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* ════════ TRUSTED BY ════════ */}
+      <section className="py-20" style={{ backgroundColor: T.surface }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-center mb-12 leading-tight" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+            Trusted by Top Companies for all types of Outsourcing
+          </h2>
 
-          <div className="bg-white rounded-3xl p-8 lg:p-10" style={{ minHeight: 600 }}>
-            <h3 className="text-2xl font-bold mb-2" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
-              Book your call
-            </h3>
-            <p className="text-sm mb-6 font-medium" style={{ color: T.inkSoft }}>
-              Risk-free. 7-day new-hire guarantee.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center text-center mt-12">
+            <div>
+              <h3 className="text-2xl font-black tracking-tight mb-2" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+                #1 For Virtual Assistants
+              </h3>
+            </div>
+            <div>
+              <div className="flex items-center justify-center gap-1 mb-2" style={{ color: "#FFB400" }}>
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg key={i} className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l2.9 7h7.1l-5.8 4.2 2.2 7-6.4-4.6L5.6 20.2l2.2-7L2 9h7.1z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-base font-semibold" style={{ color: T.ink }}>Rated 4.9 out of 5</p>
+            </div>
+            <div>
+              <p className="text-2xl font-black" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>4.9 Stars</p>
+              <p className="text-sm" style={{ color: T.inkSoft }}>from over 2,000 reviews</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ FINAL CTA / FORM ════════ */}
+      <section className="py-24" style={{ backgroundColor: T.lavender }}>
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-center mb-10" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+            Get a free consultation with a Virtual Assistants Philippines expert today
+          </h2>
+
+          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl" style={{ minHeight: 560 }}>
             <HubSpotForm containerId="hubspot-start-footer" />
           </div>
         </div>
