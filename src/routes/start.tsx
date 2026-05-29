@@ -95,13 +95,13 @@ function QualityIcon({ name }: { name: string }) {
 }
 
 const benefits = [
-  { t: "No lock-in contracts", d: "Stay month to month with no long-term commitment." },
-  { t: "No set-up fees", d: "Recruiting is on us — you only pay once your hire starts." },
-  { t: "Free to change staff", d: "Swap your assistant any time if the fit isn't right." },
-  { t: "All-in hourly rate", d: "Wages, computer, internet, and all fees included." },
-  { t: "24/7 operation", d: "We support global businesses across every time zone." },
-  { t: "From 20 hours per week", d: "Hire part-time or full-time — whichever fits your workload." },
-];
+  { t: "No lock-in contracts", d: "Stay month to month with no long-term commitment.", icon: "LockOpen" },
+  { t: "No set-up fees", d: "Recruiting is on us — you only pay once your hire starts.", icon: "BadgeDollarSign" },
+  { t: "Free to change staff", d: "Swap your assistant any time if the fit isn't right.", icon: "RefreshCw" },
+  { t: "All-in hourly rate", d: "Wages, computer, internet, and all fees included.", icon: "Timer" },
+  { t: "24/7 operation", d: "We support global businesses across every time zone.", icon: "CalendarDays" },
+  { t: "From 20 hours per week", d: "Hire part-time or full-time — whichever fits your workload.", icon: "Users" },
+] as const;
 
 const faqs = [
   {
