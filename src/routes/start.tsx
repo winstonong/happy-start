@@ -316,15 +316,24 @@ function StartPage() {
             Virtual Assistants For Any Task
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {benefits.map((b, i) => (
-              <div key={i} className="bg-white rounded-xl px-7 py-8 text-center" style={{ border: `1px solid ${T.line}` }}>
-                <div className="text-lg font-bold mb-2" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
-                  {b.t}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {benefits.map((b, i) => {
+              const Icon = { LockOpen, BadgeDollarSign, RefreshCw, Timer, CalendarDays, Users }[b.icon];
+              return (
+                <div key={i} className="bg-white rounded-xl px-8 py-10 text-center shadow-sm">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6"
+                    style={{ backgroundColor: "#DCE2F2" }}
+                  >
+                    <Icon className="w-5 h-5" style={{ color: T.navy }} strokeWidth={2.25} />
+                  </div>
+                  <div className="text-lg font-bold mb-2" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+                    {b.t}
+                  </div>
+                  <p className="text-sm leading-relaxed" style={{ color: T.inkSoft }}>{b.d}</p>
                 </div>
-                <p className="text-sm leading-relaxed" style={{ color: T.inkSoft }}>{b.d}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
