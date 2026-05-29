@@ -3,6 +3,9 @@ import { useEffect, useRef } from "react";
 import { LockOpen, BadgeDollarSign, RefreshCw, Timer, CalendarDays, Users } from "lucide-react";
 import heroPhoto from "@/assets/start-hero-wide.jpg";
 import fitsPerfectlyPhoto from "@/assets/start-fits-perfectly.jpg";
+import logoKepler from "@/assets/logo-kepler.png";
+import logoHerschel from "@/assets/logo-herschel.png";
+import logoCanyonOaks from "@/assets/logo-canyon-oaks.png";
 
 /* ─── Tokens (mirroring the source page palette) ─── */
 const T = {
@@ -157,22 +160,25 @@ const faqs = [
 
 const testimonials = [
   {
-    quote: "Virtual Assistants Philippines has been instrumental in helping us build a strong, remote, global workforce. We've thrown a wide variety of tasks at them and they've delivered consistently. Highly recommended.",
-    name: "Manal Iqbal",
-    title: "Chief Executive Officer",
-    company: "Buddy Bet",
+    quote: "Outstanding support. Throughout the process, Virtual Assistants Philippines has been instrumental in helping us build a strong, remote, global workforce.",
+    name: "Doris",
+    company: "Kepler Analytics",
+    logo: logoKepler,
+    logoBg: "#0A1F44",
   },
   {
-    quote: "Their team let us scale digital campaigns far faster and more cost-effectively than local agencies. As an early-stage startup, that speed was perfect — we could test, learn, and pivot quickly.",
-    name: "Shanya Suppasiritad",
-    title: "Chief Executive Officer",
-    company: "RNTR",
+    quote: "We at Herschel have had a wonderful experience working with Virtual Assistants Philippines. The onboarding process was extremely smooth and professional.",
+    name: "Daniel",
+    company: "Herschel Supply Co.",
+    logo: logoHerschel,
+    logoBg: "#FFFFFF",
   },
   {
-    quote: "As a multi-jurisdictional retailer, outstanding client service is core to what we do. We came to Virtual Assistants Philippines for customer support and they've been exceptional at finding the right people to operate around the clock — at industry-leading speed and cost.",
-    name: "Anthony Spon-Smith",
-    title: "Chief Executive Officer",
-    company: "Coco Republic",
+    quote: "We work closely with our Virtual Assistant Philippines team. They consistently meet deadlines and deliver high quality results for any task we give them.",
+    name: "Victoria",
+    company: "Canyon Oaks Podiatry",
+    logo: logoCanyonOaks,
+    logoBg: "#FFFFFF",
   },
 ];
 
@@ -384,7 +390,7 @@ function StartPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
-                Hear about the Virtual Assistants Philippines experience direct from our clients
+                Hear what our clients say about using Virtual Assistants Philippines
               </h2>
             </div>
             <div className="flex flex-col gap-5">
@@ -409,10 +415,17 @@ function StartPage() {
                 <p className="text-sm leading-relaxed italic mb-6 flex-1" style={{ color: T.inkSoft }}>
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div style={{ borderTop: `1px solid ${T.line}` }} className="pt-4">
-                  <div className="font-bold text-sm" style={{ color: T.ink }}>{t.name}</div>
-                  <div className="text-xs" style={{ color: T.muted }}>{t.title}</div>
-                  <div className="text-xs font-semibold mt-0.5" style={{ color: T.blue }}>{t.company}</div>
+                <div style={{ borderTop: `1px solid ${T.line}` }} className="pt-4 flex items-center gap-4">
+                  <div
+                    className="flex items-center justify-center rounded-md shrink-0"
+                    style={{ backgroundColor: t.logoBg, width: 72, height: 56, padding: 6 }}
+                  >
+                    <img src={t.logo} alt={t.company} className="max-h-full max-w-full object-contain" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-sm" style={{ color: T.ink }}>{t.name}</div>
+                    <div className="text-xs font-semibold mt-0.5" style={{ color: T.blue }}>{t.company}</div>
+                  </div>
                 </div>
               </div>
             ))}
