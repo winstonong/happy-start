@@ -76,10 +76,23 @@ const press = [
 ];
 
 const qualities = [
-  { t: "Excellent communication skills", d: "Strong English — verbal and written — paired with a friendly, professional demeanour." },
-  { t: "Equipped and ready to work", d: "Quiet workspace, high-spec computer, reliable internet, and access to cloud-based tools." },
-  { t: "Time management", d: "One of the top qualities we screen for, so your tasks get done quickly and on schedule." },
+  { t: "Excellent communication skills", d: "Strong English — verbal and written — paired with a friendly, professional demeanour.", icon: "chat" },
+  { t: "Equipped and ready to work", d: "Quiet workspace, high-spec computer, reliable internet, and access to cloud-based tools.", icon: "monitor" },
+  { t: "Time management", d: "One of the top qualities we screen for, so your tasks get done quickly and on schedule.", icon: "clock" },
 ];
+
+function QualityIcon({ name }: { name: string }) {
+  const common = "w-5 h-5";
+  if (name === "chat") return (
+    <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  );
+  if (name === "monitor") return (
+    <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+  );
+  return (
+    <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+  );
+}
 
 const benefits = [
   { t: "No lock-in contracts", d: "Stay month to month with no long-term commitment." },
