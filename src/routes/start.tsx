@@ -14,7 +14,7 @@ const T = {
   navy: "#0E1B4D",
   navyDeep: "#091238",
   navyCard: "#19286A",
-  lavender: "#ECECF5",
+  lavender: "#E8ECF7",
   blue: "#2962FF",
   blueHover: "#1E4DD8",
 };
