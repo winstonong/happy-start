@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import heroPhoto from "@/assets/start-hero-wide.jpg";
 
-/* ─── Tokens ─── */
+/* ─── Tokens (mirroring the source page palette) ─── */
 const T = {
   ink: "#0A0A0A",
   inkSoft: "#3F3F46",
@@ -10,7 +10,12 @@ const T = {
   line: "#E4E4E7",
   surface: "#FFFFFF",
   surfaceMuted: "#F5F5F4",
-  accent: "#000000",
+  navy: "#1A2754",
+  navyDeep: "#13204A",
+  navyCard: "#22356A",
+  lavender: "#ECECF5",
+  blue: "#2962FF",
+  blueHover: "#1E4DD8",
 };
 
 /* ─── HubSpot form ─── */
