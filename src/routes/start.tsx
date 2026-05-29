@@ -271,7 +271,7 @@ function StartPage() {
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="url(#halfStarPress)" />
             </svg>
           </div>
-          <p className="text-center text-2xl md:text-3xl lg:text-4xl font-black tracking-tight" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
+          <p className="text-center text-xl md:text-2xl font-semibold" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
             4.9 stars from +2,500 reviews
           </p>
           <p className="text-center text-base md:text-lg mt-2" style={{ color: T.muted }}>
