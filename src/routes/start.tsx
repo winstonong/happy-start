@@ -260,8 +260,8 @@ function StartPage() {
       {/* ════════ FITS PERFECTLY (navy) ════════ */}
       <section className="py-24 lg:py-28" style={{ backgroundColor: T.navy, color: "white" }}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="flex items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+            <div className="relative lg:pr-0 z-10">
               <img
                 src={fitsPerfectlyPhoto}
                 alt="Virtual assistants collaborating in office"
@@ -269,7 +269,10 @@ function StartPage() {
                 loading="lazy"
               />
             </div>
-            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-2xl" style={{ color: T.ink }}>
+            <div
+              className="bg-white rounded-2xl p-8 lg:p-12 shadow-2xl lg:-ml-16 relative z-20"
+              style={{ color: T.ink }}
+            >
               <h2 className="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] mb-5" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
                 Get a VA who fits perfectly in your business
               </h2>
@@ -291,7 +294,13 @@ function StartPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {qualities.map((q, i) => (
               <div key={i} className="p-7 rounded-xl" style={{ backgroundColor: T.navyCard }}>
-                <h3 className="text-lg font-bold mb-3" style={{ color: T.blue, fontFamily: "'Poppins', system-ui, sans-serif" }}>{q.t}</h3>
+                <div
+                  className="w-11 h-11 rounded-full flex items-center justify-center mb-5 text-white"
+                  style={{ backgroundColor: T.blue }}
+                >
+                  <QualityIcon name={q.icon} />
+                </div>
+                <h3 className="text-lg font-bold mb-3" style={{ color: "#6B8AFF", fontFamily: "'Poppins', system-ui, sans-serif" }}>{q.t}</h3>
                 <p className="text-sm leading-relaxed text-white/85">{q.d}</p>
               </div>
             ))}
