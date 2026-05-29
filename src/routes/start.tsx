@@ -394,11 +394,27 @@ function StartPage() {
               </h2>
             </div>
             <div className="flex flex-col gap-5">
-              <div className="text-center">
-                <p className="text-xl md:text-2xl font-bold" style={{ color: T.ink }}>
+              <div>
+                <div className="flex items-center gap-1 mb-3" aria-label="4.9 out of 5 stars">
+                  {[0, 1, 2, 3].map((i) => (
+                    <svg key={i} width="28" height="28" viewBox="0 0 24 24" fill="#F5A623" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  ))}
+                  <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="halfStar" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="50%" stopColor="#F5A623" />
+                        <stop offset="50%" stopColor="#E5E7EB" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="url(#halfStar)" />
+                  </svg>
+                </div>
+                <p className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight" style={{ color: T.ink, fontFamily: "'Poppins', system-ui, sans-serif" }}>
                   4.9 stars from +2,500 reviews
                 </p>
-                <p className="text-sm md:text-base mt-2" style={{ color: T.inkSoft }}>
+                <p className="text-base md:text-lg mt-2" style={{ color: T.inkSoft }}>
                   Across Trustpilot, Google Reviews and Glassdoor.
                 </p>
               </div>
