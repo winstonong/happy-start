@@ -65,13 +65,6 @@ function RootComponent() {
               <img src="/images/logo-icon.svg" alt="VA" width={28} height={28} className="flex-shrink-0" />
               <span className="text-base md:text-2xl truncate" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>Virtual Assistants Philippines</span>
             </Link>
-            <a
-              href="#hubspot-v8-hero-anchor"
-              onClick={() => (window as any).dataLayer?.push({ event: "cta_click", cta_label: "Get a Free Quote" })}
-              className="flex-shrink-0 inline-flex items-center px-3 md:px-5 py-2 md:py-2.5 bg-gray-900 text-white text-xs md:text-sm font-medium rounded-full hover:bg-gray-800 transition-colors whitespace-nowrap"
-            >
-              Get a Free Quote
-            </a>
           </div>
         </nav>
         <main className="flex-1">
