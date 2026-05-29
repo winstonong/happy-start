@@ -394,9 +394,18 @@ function StartPage() {
               </h2>
             </div>
             <div className="flex flex-col gap-5">
-              <p className="text-base md:text-lg" style={{ color: T.inkSoft }}>
-                With 4.9 stars from over 2,000 reviews across Trustpilot, Google Reviews and Glassdoor
+              <p className="text-base md:text-lg font-bold" style={{ color: T.ink }}>
+                4.9 Stars from +2,500 Reviews across{" "}
+                <a href="https://www.trustpilot.com" target="_blank" rel="noopener noreferrer" style={{ color: T.blue }} className="hover:underline">Trustpilot</a>,{" "}
+                <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" style={{ color: T.blue }} className="hover:underline">Google Reviews</a> and{" "}
+                <a href="https://www.glassdoor.com" target="_blank" rel="noopener noreferrer" style={{ color: T.blue }} className="hover:underline">Glassdoor</a>
               </p>
+              <div className="flex items-center gap-1" style={{ color: "#F5A623" }}>
+                {[0,1,2,3].map((i) => (
+                  <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                ))}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><defs><linearGradient id="halfStar"><stop offset="50%" stopColor="#F5A623"/><stop offset="50%" stopColor="#E5E7EB"/></linearGradient></defs><path fill="url(#halfStar)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
               <a
                 href="#hubspot-start-footer"
                 className="self-start inline-flex items-center px-6 py-3 rounded-md font-bold text-sm tracking-wide text-white transition-colors"
