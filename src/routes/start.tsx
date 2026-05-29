@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import heroPhoto from "@/assets/start-hero-wide.jpg";
+import fitsPerfectlyPhoto from "@/assets/start-fits-perfectly.jpg";
 
 /* ─── Tokens (mirroring the source page palette) ─── */
 const T = {
