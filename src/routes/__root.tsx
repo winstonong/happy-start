@@ -61,9 +61,11 @@ function RootComponent() {
         </noscript>
         <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between gap-3">
-            <Link to="/" className="flex items-center gap-2 font-bold tracking-tight text-gray-900 min-w-0">
-              <img src="/images/logo-icon.svg" alt="VA" width={28} height={28} className="flex-shrink-0" />
-              <span className="text-base md:text-2xl truncate" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>Virtual Assistants Philippines</span>
+            <Link to="/" className="flex items-center gap-2.5 font-bold tracking-tight text-gray-900 min-w-0 group">
+              <img src="/images/logo-icon.svg" alt="VAP logo" width={32} height={32} className="flex-shrink-0 transition-transform group-hover:rotate-[-6deg]" />
+              <span className="text-base md:text-xl truncate leading-none" style={{ fontFamily: "'Poppins', system-ui, sans-serif" }}>
+                Virtual Assistants <span className="text-blue-700">Philippines</span>
+              </span>
             </Link>
           </div>
         </nav>
