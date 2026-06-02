@@ -32,7 +32,7 @@ function RootComponent() {
   }, [router]);
 
   return (
-    <html lang="en" className="antialiased scroll-smooth app-loading" suppressHydrationWarning>
+    <html lang="en" className="antialiased scroll-smooth">
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,17 +41,12 @@ function RootComponent() {
           dangerouslySetInnerHTML={{
             __html: `
               html,body{background:#ffffff;color:#1C1C1C;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}
-              html.app-loading body{opacity:0;animation:app-fouc-fallback .01s linear 1.2s forwards}
-              html.app-ready body{opacity:1;animation:none;transition:opacity .16s ease-out}
-              @keyframes app-fouc-fallback{to{opacity:1}}
+              body{opacity:0;animation:app-first-paint .16s ease-out .14s forwards}
+              @keyframes app-first-paint{to{opacity:1}}
             `,
           }}
         />
         <link rel="stylesheet" href={appCss} />
-        <ScriptOnce
-          children={`document.documentElement.classList.remove('app-loading');
-            document.documentElement.classList.add('app-ready');`}
-        />
         <noscript><style>{`body{opacity:1!important}`}</style></noscript>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
