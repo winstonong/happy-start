@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { LockOpen, BadgeDollarSign, RefreshCw, Timer, CalendarDays, Users } from "lucide-react";
-import heroPhoto from "@/assets/start-hero-wide.jpg";
+import heroPhotoAsset from "@/assets/start-hero-ambition.jpg.asset.json";
+const heroPhoto = heroPhotoAsset.url;
 import fitsPerfectlyPhoto from "@/assets/start-fits-perfectly.jpg";
 import logoKepler from "@/assets/logo-kepler.png";
 import logoHerschel from "@/assets/logo-herschel.png";
