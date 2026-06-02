@@ -36,28 +36,24 @@ function RootComponent() {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Critical inline CSS: prevents FOUC by giving the doc a baseline bg + font fallback
-            before the bundled Tailwind stylesheet parses, and fades the body in once it does. */}
+        <link rel="stylesheet" href={appCss} />
+        {/* Critical inline CSS: hides the body until the bundled stylesheet has parsed and the
+            end-of-body boot script reveals it, preventing raw SSR HTML from flashing. */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
               html,body{background:#ffffff;color:#1C1C1C;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}
               body{opacity:0;transition:opacity .18s ease-out}
-              body.fonts-ready,body:not(.fonts-pending){opacity:1}
+              html.app-ready body{opacity:1}
             `,
           }}
         />
+        <noscript><style>{`body{opacity:1!important}`}</style></noscript>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap"
           rel="stylesheet"
-        />
-        <ScriptOnce
-          children={`document.body && document.body.classList.add('fonts-pending');
-            (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
-              .then(function(){document.body.classList.add('fonts-ready')});
-            setTimeout(function(){document.body.classList.add('fonts-ready')}, 600);`}
         />
         <ScriptOnce children={gtmScript} />
         <HeadContent />
@@ -89,6 +85,15 @@ function RootComponent() {
             &copy; {new Date().getFullYear()} Virtual Assistants Philippines. All rights reserved.
           </div>
         </footer>
+        <ScriptOnce
+          children={`(function(){
+            var reveal = function(){ document.documentElement.classList.add('app-ready'); };
+            var done = false;
+            var safeReveal = function(){ if (!done) { done = true; requestAnimationFrame(reveal); } };
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(safeReveal, safeReveal);
+            setTimeout(safeReveal, 450);
+          })();`}
+        />
         
         <ScriptOnce
           children={`
@@ -135,8 +140,6 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
     ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-    ],
+    links: [],
   }),
 });
