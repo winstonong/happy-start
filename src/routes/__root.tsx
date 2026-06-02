@@ -37,14 +37,15 @@ function RootComponent() {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href={appCss} />
-        {/* Critical inline CSS: hides the body until the bundled stylesheet has parsed and the
-            end-of-body boot script reveals it, preventing raw SSR HTML from flashing. */}
+        {/* Critical inline CSS: keeps the first paint hidden for a beat while the render-blocking
+            bundled stylesheet is parsed, then fades in without mutating DOM before hydration. */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
               html,body{background:#ffffff;color:#1C1C1C;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}
-              body{opacity:0;transition:opacity .18s ease-out}
-              html.app-ready body{opacity:1}
+              body{opacity:0;animation:app-first-paint .16s ease-out .12s forwards}
+              @keyframes app-first-paint{to{opacity:1}}
+              @media (prefers-reduced-motion:reduce){body{animation-delay:.08s;animation-duration:.01s}}
             `,
           }}
         />
@@ -85,16 +86,6 @@ function RootComponent() {
             &copy; {new Date().getFullYear()} Virtual Assistants Philippines. All rights reserved.
           </div>
         </footer>
-        <ScriptOnce
-          children={`(function(){
-            var reveal = function(){ document.documentElement.classList.add('app-ready'); };
-            var done = false;
-            var safeReveal = function(){ if (!done) { done = true; requestAnimationFrame(reveal); } };
-            if (document.fonts && document.fonts.ready) document.fonts.ready.then(safeReveal, safeReveal);
-            setTimeout(safeReveal, 450);
-          })();`}
-        />
-        
         <ScriptOnce
           children={`
             if (typeof window !== 'undefined') {
