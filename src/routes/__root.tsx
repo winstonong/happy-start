@@ -32,22 +32,25 @@ function RootComponent() {
   }, [router]);
 
   return (
-    <html lang="en" className="antialiased scroll-smooth">
+    <html lang="en" className="antialiased scroll-smooth app-loading" suppressHydrationWarning>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href={appCss} />
-        {/* Critical inline CSS: keeps the first paint hidden for a beat while the render-blocking
-            bundled stylesheet is parsed, then fades in without mutating DOM before hydration. */}
+        {/* Critical inline CSS: hide SSR body before any external CSS can lag behind first paint. */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
               html,body{background:#ffffff;color:#1C1C1C;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}
-              body{opacity:0;animation:app-first-paint .16s ease-out .12s forwards}
-              @keyframes app-first-paint{to{opacity:1}}
-              @media (prefers-reduced-motion:reduce){body{animation-delay:.08s;animation-duration:.01s}}
+              html.app-loading body{opacity:0;animation:app-fouc-fallback .01s linear 1.2s forwards}
+              html.app-ready body{opacity:1;animation:none;transition:opacity .16s ease-out}
+              @keyframes app-fouc-fallback{to{opacity:1}}
             `,
           }}
+        />
+        <link rel="stylesheet" href={appCss} />
+        <ScriptOnce
+          children={`document.documentElement.classList.remove('app-loading');
+            document.documentElement.classList.add('app-ready');`}
         />
         <noscript><style>{`body{opacity:1!important}`}</style></noscript>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
